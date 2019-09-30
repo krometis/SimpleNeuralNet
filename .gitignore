@@ -1,0 +1,5 @@
+#ignore hdf5 files
+*.h5
+
+#ignore slurm output files
+slurm-*.out
