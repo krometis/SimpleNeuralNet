@@ -28,13 +28,13 @@ datax = rand(nn.nNeurons[1],nData);   #draw input dataset at random
 datay = rand(nn.nNeurons[end],nData); #draw output dataset at random
 
 #Compute the initial costs
-c0 = [ nnCost(datay[:,d],nnForward(nn,datax[:,d])) for d=1:size(datax,2) ];
+c0 = nnComputeCosts(nn,datax,datay;print=false);
 
 #Train
 nnTrain(nn,datax,datay,epochs,lr;verbose=true);
 
 #Compute the final costs
-cf = [ nnCost(datay[:,d],nnForward(nn,datax[:,d])) for d=1:size(datax,2) ];
+cf = nnComputeCosts(nn,datax,datay;print=false);
 
 #Print a comparison of initial/final costs
 for d=1:length(cf)
